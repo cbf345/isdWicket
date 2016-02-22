@@ -9,6 +9,8 @@ import org.apache.wicket.model.Model;
 public class LoginPage extends WebPage{
 	private static final long serialVersionUID = 1L;
 
+	TestManagementDAO dao = new TestManagementDAO();
+
 	private IModel<String> nameModel;
 	private IModel<String> passwordModel;
 
@@ -21,9 +23,11 @@ public class LoginPage extends WebPage{
 
 			protected void onSubmit(){
 				super.onSubmit();
-				System.out.println("name : " + nameModel.getObject());
-				System.out.println("password : " + passwordModel.getObject());
-				setResponsePage(new ProductList(nameModel));
+				if(dao.confirmAccount(nameModel.getObject(), passwordModel.getObject())){
+					setResponsePage(new ProductList(nameModel));
+				}else{
+					setResponsePage(new LoginPage());
+				}
 			}
 		};
 		add(form);

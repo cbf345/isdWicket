@@ -6,7 +6,7 @@ import org.apache.wicket.model.IModel;
 public class ProductList extends WebPage{
 	private static final long serialVersionUID = 1L;
 	public ProductList(IModel<String> nameModel){
-		add(new Header("header","aaa"));
+		add(new Header("header",nameModel));
 	}
 
 }
