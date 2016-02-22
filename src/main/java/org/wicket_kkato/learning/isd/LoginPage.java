@@ -19,7 +19,6 @@ public class LoginPage extends WebPage{
 		passwordModel = new Model<>("");
 
 		Form<Void> form = new Form<Void>("form"){
-			private static final long SerialVersionUID = 1L;
 
 			protected void onSubmit(){
 				super.onSubmit();
@@ -28,6 +27,7 @@ public class LoginPage extends WebPage{
 				}else{
 					setResponsePage(new LoginPage());
 				}
+//				setResponsePage(new ProductList(nameModel));
 			}
 		};
 		add(form);
