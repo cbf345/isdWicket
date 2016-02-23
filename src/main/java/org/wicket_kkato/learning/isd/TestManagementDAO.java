@@ -10,15 +10,15 @@ import java.sql.SQLException;
 public class TestManagementDAO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	String driver = "org.postgresql.Driver";
-	String url = "jdbc:postgresql:/5432/isdWicket";
-	String dbUser = "postgres";
-	String dbPassword = "postgres";
+//	String driver = "org.postgresql.Driver";
+	String url = "jdbc:mysql://localhost/isdWicket";
+	String dbUser = "root";
+	String dbPassword = "mysql";
 
 	public boolean confirmAccount(String accountId, String password) {
 		Connection conn = null;
 		try {
-			Class.forName(driver);
+//			Class.forName(driver);
 			conn = DriverManager.getConnection(url, dbUser, dbPassword);
 
 			String sql = "select * from account_table where account_id = ? and password = ?";
@@ -28,7 +28,7 @@ public class TestManagementDAO implements Serializable{
 
 			ResultSet rs = pstmt.executeQuery();
 			return rs.next();
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
 		}

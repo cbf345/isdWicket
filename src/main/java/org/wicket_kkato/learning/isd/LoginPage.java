@@ -32,9 +32,9 @@ public class LoginPage extends WebPage{
 		};
 		add(form);
 
-		TextField<String> nameField = new TextField("name",nameModel);
+		TextField<String> nameField = new TextField<String>("name",nameModel);
 		form.add(nameField);
-		TextField<String> passwordField = new TextField("password",passwordModel);
+		TextField<String> passwordField = new TextField<String>("password",passwordModel);
 		form.add(passwordField);
 	}
 
